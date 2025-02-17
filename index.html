@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Dog Facts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #factDisplay {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #555;
+            transition: opacity 0.5s;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Dog Facts</h1>
+        <p id="factDisplay">Click the button to get a dog fact!</p>
+        <button id="factButton">Get Random Fact</button>
+    </div>
+    <script>
+        const dogFacts = [
+            {
+                "fact": "Dogs are descendants of wolves and were domesticated around 15,000 years ago."
+            },
+            {
+                "fact": "There are over 340 different dog breeds worldwide, recognized by various kennel clubs."
+            },
+            {
+                "fact": "Dogs have an extraordinary sense of smell, which is 10,000 to 100,000 times more sensitive than humans."
+            },
+            {
+                "fact": "The Basenji dog is known as the 'barkless dog' because it makes a unique sound called a 'barroo' instead of barking."
+            },
+            {
+                "fact": "Dogs are social animals and thrive on companionship, often forming strong bonds with their human families."
+            },
+            {
+                "fact": "The Labrador Retriever has been the most popular dog breed in the United States for several years."
+            },
+            {
+                "fact": "Dogs can understand human emotions and can often sense when their owners are sad or stressed."
+            },
+            {
+                "fact": "The average lifespan of a dog varies by breed, but it typically ranges from 10 to 15 years."
+            },
+            {
+                "fact": "Dogs have three eyelids, including a nictitating membrane that helps keep their eyes moist and protected."
+            },
+            {
+                "fact": "The world's smallest dog breed is the Chihuahua, while the largest is the Great Dane."
+            }
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * dogFacts.length);
+            const fact = dogFacts[randomIndex].fact;
+            const factDisplay = document.getElementById('factDisplay');
+            
+            factDisplay.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                factDisplay.textContent = fact;
+                factDisplay.style.opacity = 1; // Fade in
+            }, 500);
+        });
+    </script>
+</body>
+</html>
